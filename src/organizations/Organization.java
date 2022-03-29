@@ -1,3 +1,5 @@
+package organizations;
+
 import java.time.ZonedDateTime;
 
 public class Organization implements Comparable<Organization>{

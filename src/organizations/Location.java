@@ -1,3 +1,5 @@
+package organizations;
+
 public class Location {
 
     private long x; //Поле не может быть null

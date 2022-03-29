@@ -1,4 +1,6 @@
-import com.sun.org.apache.xpath.internal.operations.Or;
+package commands;
+
+import organizations.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;

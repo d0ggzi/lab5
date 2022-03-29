@@ -1,3 +1,5 @@
+package organizations;
+
 public enum OrganizationType {
     COMMERCIAL("commercial"),
     TRUST("trust"),

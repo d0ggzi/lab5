@@ -1,3 +1,5 @@
+package organizations;
+
 public class Coordinates {
 
     private int x; //Значение поля должно быть больше -900

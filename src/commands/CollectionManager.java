@@ -1,4 +1,7 @@
-import java.time.ZonedDateTime;
+package commands;
+
+import organizations.*;
+
 import java.util.*;
 import java.io.*;
 
@@ -6,6 +9,7 @@ public class CollectionManager {
     private LinkedHashSet<Organization> organizations;
     protected static HashMap<String, String> commands;
     private Date initiazitionDate;
+    private Script script = new Script();
 
 
     {
@@ -65,8 +69,13 @@ public class CollectionManager {
     }
 
     public void show(){
-        for (Organization org: organizations){
-            System.out.println(org.toString());
+        if (organizations.isEmpty()){
+            System.out.println("Коллекция пуста.");
+        }
+        else{
+            for (Organization org: organizations){
+                System.out.println(org.toString());
+            }
         }
     }
 
@@ -153,7 +162,7 @@ public class CollectionManager {
         while (true){
             System.out.println("Введите тип организации из списка - COMMERCIAL, TRUST, OPEN_JOINT_STOCK_COMPANY");
             try{
-                addType = OrganizationType.valueOf(read());
+                addType = OrganizationType.valueOf(read().toUpperCase(Locale.ROOT));
                 break;
             }
             catch (IllegalArgumentException e){
@@ -244,8 +253,13 @@ public class CollectionManager {
     }
 
     public void clear(){
-        organizations.clear();
-        System.out.println("Коллекция очищена.");
+        if (organizations.isEmpty()){
+            System.out.println("Коллекция уже пуста.");
+        }
+        else{
+            organizations.clear();
+            System.out.println("Коллекция очищена.");
+        }
     }
 
     public void save(){
@@ -265,6 +279,11 @@ public class CollectionManager {
             System.out.println("Не удалось сохранить коллекцию в файл.");
             e.printStackTrace();
         }
+    }
+
+    public void execute_script(String filepath, CollectionManager manager){
+        System.out.println("Запуск скрипта из файла: " + filepath);
+        script.Script(filepath, manager);
     }
 
     public void add_if_min(){
