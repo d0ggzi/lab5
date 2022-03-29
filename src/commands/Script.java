@@ -4,6 +4,25 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import java.nio.file.Paths;
 import java.util.*;
 
@@ -53,9 +72,9 @@ public class Script {
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.print("Неправильный аргумент, попробуйте снова.");
         }catch (IOException e){
-            System.out.println("Недостаточно прав для запуска файла, попробуйте снова.");
+            System.out.println("Файл не найден или недостаточно прав для запуска, попробуйте снова.");
         }
-        return true;
+        return false;
     }
 
 
